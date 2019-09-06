@@ -7,7 +7,7 @@ const expressValidator = require("express-validator");
 const mongoose = require("mongoose");
 
 // Import routes
-const userRoutes = require("./routes/user");
+const authRoutes = require("./routes/auth");
 
 // App
 const app = express();
@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(expressValidator());
 
 // Routes middleware
-app.use("/api", userRoutes);
+app.use("/api", authRoutes);
 
 const port = process.env.PORT || 8000;
 

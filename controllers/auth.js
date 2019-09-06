@@ -47,7 +47,16 @@ exports.signin = (req, res) => {
   });
 };
 
+// Controller for signing out the user
+
 exports.signout = (req, res) => {
   res.clearCookie("t");
   res.json({ message: "Signout success" });
 };
+
+// Controller to protect the route
+
+exports.requiredSignin = expressJwt({
+  secret: process.env.JWT_SECRET,
+  userProperty: "auth"
+});
