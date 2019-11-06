@@ -5,7 +5,7 @@
 ```
 - Clone the repo
 - cd into i
-- run npm i
+- Run npm i
 - Add your db connection creating a .env file
 ```
 
