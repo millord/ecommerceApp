@@ -16,6 +16,13 @@ const productRoutes = require("./routes/product");
 // App
 const app = express();
 
+// middlewares
+app.use(morgan("dev"));
+app.use(cors());
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(expressValidator());
+
 // database connection
 mongoose
   .connect(process.env.DATABASE, {
@@ -23,13 +30,6 @@ mongoose
     useCreateIndex: true
   })
   .then(() => console.log("DB connected!..."));
-
-// middlewares
-app.use(morgan("dev"));
-app.use(cors());
-app.use(bodyParser.json());
-app.use(cookieParser());
-app.use(expressValidator());
 
 // Routes middleware
 app.use("/api", authRoutes);
